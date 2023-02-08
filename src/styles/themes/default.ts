@@ -1,26 +1,31 @@
 export const defaultTheme = {
-  white: '#fff',
+  blue: '#3294F8',
+  'blue-title': '#E7EDF4',
+  'blue-subtitle': '#C4D4E3',
+  'blue-text': '#AFC2D4',
 
-  'gray-100': '#E1E1E6',
-  'gray-300': '#C4C4CC',
-  'gray-400': '#8D8D99',
-  'gray-500': '#7C7C8A',
-  'gray-600': '#323238',
-  'gray-700': '#29292E',
-  'gray-800': '#202024',
-  'gray-900': '#121214',
+  'base-span': '#7B96B2',
+  'base-label': '#3A536B',
+  'base-border': '#1C2F41',
+  'base-post': '#112131',
 
-  'green-300': '#00B37E',
-  'green-500': '#00875F',
-  'green-700': '#015F43',
-
-  'red-300': '#F75A68',
-  'red-500': '#AB222E',
-  'red-700': '#7A1921',
+  'base-profile': '#0B1B2B',
+  'base-background': '#071422',
+  'base-input': '#040F1A',
 
   'breakpoint-sm': '30em', // 480px
   'breakpoint-md': '48em', // 768px
   'breakpoint-lg': '62em', // 992px
   'breakpoint-xl': '80em', // 1280px
   'breakpoint-2xl': '96em', // 1536px
+
+  xxs: '0.625rem', // 10px
+  xs: '0.75rem', // 12px
+  sm: '0.875rem', // 14px
+  md: '1rem', // 16px
+  lg: '1.125rem', // 18px
+  xl: '1.25rem', // 20px
+  '2xl': '1.5rem', // 24px
+  '3xl': '1.875rem', // 30px
+  '5xl': '3rem', // 48px
 } as const

@@ -10,7 +10,7 @@ ${({ theme }) => css`
 
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${theme['green-500']};
+    box-shadow: 0 0 0 2px ${theme.blue};
   }
 
   button {
@@ -23,8 +23,8 @@ ${({ theme }) => css`
   }
 
   body {
-    background: ${theme['gray-800']};
-    color: ${theme['gray-100']};
+    background: ${theme['base-background']};
+    color: ${theme['blue-text']};
     -webkit-font-smoothing: antialiased;
   }
 
