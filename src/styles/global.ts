@@ -32,7 +32,8 @@ ${({ theme }) => css`
   input,
   textarea,
   button {
-    font: 400 1rem 'Roboto', sans-serif;
+    font: 400 1rem 'Nunito', sans-serif;
+    line-height: 160%;
   }
 `}
 
