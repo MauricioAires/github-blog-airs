@@ -5,6 +5,7 @@ export const ProfileWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  width: 100%;
   transform: translateY(-50%);
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 `
