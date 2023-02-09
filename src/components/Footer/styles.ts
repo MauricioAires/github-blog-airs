@@ -49,7 +49,7 @@ export const FooterContent = styled.div`
 
         > a {
           text-decoration: none;
-          color: ${theme['blue-text']};
+          color: ${theme['base-text']};
 
           &:hover {
             color: ${theme.blue};
