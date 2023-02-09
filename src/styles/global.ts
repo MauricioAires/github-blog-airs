@@ -24,7 +24,7 @@ ${({ theme }) => css`
 
   body {
     background: ${theme['base-background']};
-    color: ${theme['blue-text']};
+    color: ${theme['base-text']};
     -webkit-font-smoothing: antialiased;
   }
 
