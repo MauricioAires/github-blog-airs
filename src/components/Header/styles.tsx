@@ -17,12 +17,13 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 296px;
+  height: 19rem;
   flex: 1;
   max-width: 1440px;
   padding: 1rem;
 
   > img {
     height: 6rem;
+    transform: translateY(-50%);
   }
 `
