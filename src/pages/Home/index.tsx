@@ -1,3 +1,11 @@
+import { Profile } from '../../components/Profile'
+
+import * as S from './styles'
+
 export function HomePage() {
-  return <h1>Home Page</h1>
+  return (
+    <S.HomePageWrapper>
+      <Profile />
+    </S.HomePageWrapper>
+  )
 }
