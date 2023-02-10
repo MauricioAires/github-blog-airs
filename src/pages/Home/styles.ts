@@ -19,7 +19,7 @@ export const PostList = styled.div`
   grid-row-gap: 1rem;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(max(416px, calc(100% / 2 - 1rem)), 1fr)
+    minmax(max(382px, calc(100% / 2 - 1rem)), 1fr)
   );
 `
 
