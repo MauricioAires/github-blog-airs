@@ -1,12 +1,15 @@
 import * as S from './styles'
 
 import GithubBlogLogo from '../../assets/github-blog-logo.svg'
+import { Link } from 'react-router-dom'
 
 export function Header() {
   return (
     <S.HeaderWrapper>
       <S.HeaderContent>
-        <img src={GithubBlogLogo} alt="" />
+        <Link to="/">
+          <img src={GithubBlogLogo} alt="" />
+        </Link>
       </S.HeaderContent>
     </S.HeaderWrapper>
   )

@@ -30,6 +30,10 @@ export const FooterContent = styled.div`
       gap: 2rem;
     }
 
+    > a {
+      line-height: 0;
+    }
+
     img {
       width: 5rem;
     }
@@ -50,6 +54,10 @@ export const FooterContent = styled.div`
         > a {
           text-decoration: none;
           color: ${theme['base-text']};
+          line-height: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           &:hover {
             color: ${theme.blue};
