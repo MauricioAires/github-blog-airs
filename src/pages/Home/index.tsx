@@ -9,14 +9,22 @@ export function HomePage() {
       <Profile />
 
       <S.HomeMain>
-        <div>
+        <S.Title>
+          <h1>Publicações</h1>
+
+          <span>6 publicações</span>
+        </S.Title>
+        <S.SearchForm>
+          <input type="text" placeholder="Buscar conteúdo" />
+        </S.SearchForm>
+        <S.PostList>
           <PostCard />
           <PostCard />
           <PostCard />
           <PostCard />
           <PostCard />
           <PostCard />
-        </div>
+        </S.PostList>
       </S.HomeMain>
     </S.HomePageWrapper>
   )
