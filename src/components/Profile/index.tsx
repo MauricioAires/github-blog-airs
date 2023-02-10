@@ -1,36 +1,54 @@
+import { useEffect, useState } from 'react'
 import { Buildings, GithubLogo, Share, Users } from 'phosphor-react'
+
+import { api } from '../../libs/axios'
+
 import * as S from './styles'
+
+interface User {
+  avatar_url: string
+  name: string
+  html_url: string
+  login: string
+  company: string
+  followers: number
+  bio: string
+}
+
 export function Profile() {
+  const [user, setUser] = useState<User>({} as User)
+  async function fetchUser() {
+    const response = await api.get('/users/MauricioAires')
+
+    setUser(response.data)
+  }
+
+  useEffect(() => {
+    fetchUser()
+  }, [])
+
   return (
     <S.ProfileWrapper>
       <S.ProfileContent>
-        <img src="https://github.com/MauricioAires.png" alt="Mauricio Aires" />
+        <img src={user.avatar_url} alt={user.name} />
         <div>
           <header>
-            <h1>Mauricio Aires de Freitas asdsiauhdih ausduh aiushd </h1>
-            <a
-              href="https://github.com/MauricioAires"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <h1>{user.name} </h1>
+            <a href={user.html_url} target="_blank" rel="noreferrer noopener">
               Github
               <Share size={15} weight="bold" />
             </a>
           </header>
-          <p>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </p>
+          <p>{user.bio}</p>
           <footer>
             <span>
-              <GithubLogo weight="fill" size={18} /> MauricioAires
+              <GithubLogo weight="fill" size={18} /> {user.login}
             </span>
             <span>
-              <Buildings weight="fill" size={18} /> DBC
+              <Buildings weight="fill" size={18} /> {user.company}
             </span>
             <span>
-              <Users weight="fill" size={18} /> 31232 seguidores
+              <Users weight="fill" size={18} /> {user.followers} seguidores
             </span>
           </footer>
         </div>

@@ -44,6 +44,10 @@ export const ProfileContent = styled.div`
       border-radius: 8px;
     }
 
+    > div {
+      width: 100%;
+    }
+
     p {
       font-size: ${theme.md};
       padding-top: 1rem;
@@ -54,7 +58,7 @@ export const ProfileContent = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 100%;
+      flex: 1;
 
       > h1 {
         font-size: ${theme['2xl']};
