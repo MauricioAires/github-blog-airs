@@ -27,6 +27,7 @@ do [github](https://github.com) para exibir as issues de um repositório em form
 - [Typescript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/)
 - [ViteJS](https://vitejs.dev/)
+- [Axios](https://axios-http.com/docs/intro)
 
 ---
 
