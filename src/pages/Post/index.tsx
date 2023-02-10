@@ -24,10 +24,11 @@ export function PostPage() {
             </span>
             <time>
               <Timer size={16} weight="fill" />
-              Há 1 dia
+              Há 121 dia
             </time>
             <span>
-              <MessengerLogo size={16} weight="fill" />5 comentários
+              <MessengerLogo size={16} weight="fill" />
+              55555 comentários
             </span>
           </S.Summary>
         </S.PostHeader>

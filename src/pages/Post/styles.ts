@@ -16,6 +16,11 @@ export const PostPageContent = styled.div`
 
     > main {
       padding: 2.5rem 2rem;
+      line-height: 180%;
+
+      @media (max-width: ${theme['breakpoint-md']}) {
+        padding: 1.5rem 1rem;
+      }
 
       > code {
         background: ${theme['base-post']};
@@ -36,9 +41,18 @@ export const PostHeader = styled.header`
     border-radius: 10px;
     padding: 2rem;
 
+    @media (max-width: ${theme['breakpoint-md']}) {
+      padding: 1rem;
+    }
+
     > h1 {
       font-size: ${theme['2xl']};
       color: ${theme['base-title']};
+      margin: 0.5rem 0;
+
+      @media (max-width: ${theme['breakpoint-md']}) {
+        font-size: ${theme.xl};
+      }
     }
   `}
 `
@@ -67,8 +81,13 @@ export const Summary = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.5rem;
+
     margin-top: 0.5rem;
+    flex-wrap: wrap;
+
+    @media (min-width: ${theme['breakpoint-md']}) {
+      gap: 0.5rem;
+    }
 
     > span,
     time {
@@ -79,9 +98,26 @@ export const Summary = styled.div`
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
+      margin: 0.5rem;
+      position: relative;
+
+      @media (max-width: ${theme['breakpoint-md']}) {
+        &:not(:first-child)::before {
+          content: '';
+          width: 3px;
+          height: 3px;
+          background-color: ${theme['base-span']};
+          border-radius: 100%;
+          margin-right: 0.5rem;
+        }
+      }
 
       > svg {
         color: ${theme['base-span']};
+
+        @media (max-width: ${theme['breakpoint-md']}) {
+          display: none;
+        }
       }
     }
   `}
