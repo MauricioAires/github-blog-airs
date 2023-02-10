@@ -7,7 +7,7 @@ export function Profile() {
         <img src="https://github.com/MauricioAires.png" alt="Mauricio Aires" />
         <div>
           <header>
-            <h1>Mauricio Aires de Freitas</h1>
+            <h1>Mauricio Aires de Freitas asdsiauhdih ausduh aiushd </h1>
             <a
               href="https://github.com/MauricioAires"
               target="_blank"
@@ -30,7 +30,7 @@ export function Profile() {
               <Buildings weight="fill" size={18} /> DBC
             </span>
             <span>
-              <Users weight="fill" size={18} /> 32 seguidores
+              <Users weight="fill" size={18} /> 31232 seguidores
             </span>
           </footer>
         </div>

@@ -1,13 +1,21 @@
 import styled, { css } from 'styled-components'
 
 export const ProfileWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  width: 100%;
-  transform: translateY(-50%);
-  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    transform: translateY(-50%);
+    box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(-50%);
+
+    @media (max-width: ${theme['breakpoint-md']}) {
+      transform: translateY(-25%);
+    }
+  `}
 `
 
 export const ProfileContent = styled.div`
@@ -17,11 +25,17 @@ export const ProfileContent = styled.div`
     padding: 2rem 2.5rem;
     min-height: 13rem;
     height: auto;
+    padding: 1rem;
 
     background: ${theme['base-profile']};
 
     display: flex;
     gap: 2rem;
+
+    @media (max-width: ${theme['breakpoint-md']}) {
+      flex-direction: column;
+      align-items: center;
+    }
 
     > img {
       width: 9rem;
@@ -40,11 +54,22 @@ export const ProfileContent = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 100%;
 
       > h1 {
         font-size: ${theme['2xl']};
         font-weight: bold;
         color: ${theme['base-title']};
+
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 60vw;
+
+        @media (max-width: ${theme['breakpoint-md']}) {
+          font-size: ${theme.xl};
+        }
       }
 
       > a {
@@ -70,6 +95,10 @@ export const ProfileContent = styled.div`
       align-items: center;
       gap: 1.5rem;
 
+      @media (max-width: ${theme['breakpoint-md']}) {
+        gap: 0.5rem;
+      }
+
       > span {
         font-size: ${theme.md};
         color: ${theme['base-subtitle']};
@@ -79,8 +108,26 @@ export const ProfileContent = styled.div`
         align-items: center;
         gap: 0.5rem;
 
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @media (max-width: ${theme['breakpoint-md']}) {
+          &:not(:first-child)::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            background-color: ${theme['base-span']};
+            border-radius: 100%;
+            margin-right: 0.5rem;
+          }
+        }
+
         > svg {
           color: ${theme['base-label']};
+
+          @media (max-width: ${theme['breakpoint-md']}) {
+            display: none;
+          }
         }
       }
     }
