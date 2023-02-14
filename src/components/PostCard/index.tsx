@@ -1,18 +1,20 @@
 import * as S from './styles'
 
-export function PostCard() {
+interface PostCardProps {
+  title: string
+  createdAt: string
+  body: string
+}
+
+export function PostCard({ body, createdAt, title }: PostCardProps) {
   return (
     <S.PostCardWrapper>
       <header>
-        <span>JavaScript data types and data structures</span>
-        <time>Há 1 dia</time>
+        <span>{title}</span>
+        <time>{createdAt}</time>
       </header>
 
-      <p>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in
-      </p>
+      <p>{body}</p>
     </S.PostCardWrapper>
   )
 }

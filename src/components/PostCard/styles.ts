@@ -12,6 +12,7 @@ export const PostCardWrapper = styled.article`
     flex-direction: column;
     padding: 2rem;
     border-radius: 10px;
+    overflow: hidden;
 
     > header {
       display: flex;
@@ -34,6 +35,13 @@ export const PostCardWrapper = styled.article`
     > p {
       margin-top: 1.5rem;
       font-size: ${theme.xl};
+
+      overflow: hidden;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      line-height: 160%;
     }
   `}
 `
