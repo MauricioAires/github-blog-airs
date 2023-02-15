@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { PostCard } from '../../components/PostCard'
 import { Profile } from '../../components/Profile'
 import { api } from '../../libs/axios'
@@ -18,10 +18,14 @@ interface FetchIssuesData {
 
 export function HomePage() {
   const [countIssues, setCountIssues] = useState(0)
+  const [searchIssue, setSearchIssue] = useState('')
   const [issues, setIssues] = useState<Issue[]>([])
-  async function fetchIssues() {
+
+  async function fetchIssues(searchTerm = '') {
     const response = await api.get<FetchIssuesData>(
-      '/search/issues?q=repo:MauricioAires/github-blog-airs',
+      `/search/issues?q=${encodeURIComponent(
+        searchTerm,
+      )} repo:MauricioAires/github-blog-airs`,
     )
 
     setCountIssues(response.data.total_count)
@@ -31,6 +35,11 @@ export function HomePage() {
   useEffect(() => {
     fetchIssues()
   }, [])
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    fetchIssues(searchIssue)
+  }
 
   return (
     <S.HomePageWrapper>
@@ -42,8 +51,14 @@ export function HomePage() {
 
           <span>{countIssues} publicações</span>
         </S.Title>
-        <S.SearchForm>
-          <input type="text" placeholder="Buscar conteúdo" />
+        <S.SearchForm onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={searchIssue}
+            onChange={(e) => setSearchIssue(e.target.value)}
+            placeholder="Buscar conteúdo"
+          />
+          <button type="submit">Buscar</button>
         </S.SearchForm>
         <S.PostList>
           {issues.map((issue) => (

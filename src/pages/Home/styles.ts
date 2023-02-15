@@ -46,9 +46,28 @@ export const SearchForm = styled.form`
   ${({ theme }) => css`
     margin-top: 0.85rem;
     margin-bottom: 2.5rem;
+    display: flex;
+    gap: 1rem;
+
+    > button {
+      background: ${theme.blue};
+      color: ${theme['base-title']};
+      font-weight: bold;
+      padding: 0 2rem;
+      border-radius: 6px;
+
+      &:hover {
+        filter: brightness(0.8);
+        transition: filter 0.3s;
+      }
+
+      @media (max-width: ${theme['breakpoint-md']}) {
+        padding: 0 1rem;
+      }
+    }
 
     > input {
-      width: 100%;
+      flex: 1;
       border-radius: 6px;
       padding: 1rem 0.85rem;
       background: ${theme['base-input']};
