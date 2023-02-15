@@ -13,6 +13,18 @@ ${({ theme }) => css`
     box-shadow: 0 0 0 2px ${theme.blue};
   }
 
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${theme['base-background']};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${theme['base-label']};
+  }
+
   button {
     border: 0;
     cursor: pointer;
