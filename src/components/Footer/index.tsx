@@ -1,5 +1,7 @@
 import React from 'react'
-import { GithubLogo, LinkedinLogo } from 'phosphor-react'
+
+import { AiFillLinkedin } from 'react-icons/ai'
+import { FaGithub } from 'react-icons/fa'
 
 import * as S from './styles'
 
@@ -29,7 +31,7 @@ export function Footer() {
               href="https://github.com/MauricioAires"
               rel="noreferrer"
             >
-              <GithubLogo size={22} />
+              <FaGithub size={22} />
             </a>
           </li>
           <li>
@@ -38,7 +40,7 @@ export function Footer() {
               href="https://linkedin.com/in/mauricioairs"
               rel="noreferrer"
             >
-              <LinkedinLogo size={22} />
+              <AiFillLinkedin size={26} />
             </a>
           </li>
         </ul>

@@ -72,6 +72,7 @@ export const Navigation = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 0.25rem;
     }
   `}
 `

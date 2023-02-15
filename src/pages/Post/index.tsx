@@ -1,6 +1,8 @@
-import { ArrowArcLeft, GithubLogo, MessengerLogo, Timer } from 'phosphor-react'
+import { FaGithub, FaClock, FaComment, FaChevronLeft } from 'react-icons/fa'
+import { BiLinkExternal } from 'react-icons/bi'
 
 import * as S from './styles'
+import { Link } from 'react-router-dom'
 
 export function PostPage() {
   return (
@@ -8,26 +10,28 @@ export function PostPage() {
       <S.PostPageContent>
         <S.PostHeader>
           <S.Navigation>
-            <a href="#">
-              <ArrowArcLeft />
+            <Link to="/">
+              <FaChevronLeft />
               Voltar
-            </a>
+            </Link>
 
-            <a href="#">Ver no Github</a>
+            <a href="#">
+              Ver no Github <BiLinkExternal fontWeight="bold" />
+            </a>
           </S.Navigation>
 
           <h1>JavaScript data types and data structures</h1>
           <S.Summary>
             <span>
-              <GithubLogo size={16} weight="fill" />
+              <FaGithub size={16} />
               cameronwll
             </span>
             <time>
-              <Timer size={16} weight="fill" />
+              <FaClock size={16} />
               Há 121 dia
             </time>
             <span>
-              <MessengerLogo size={16} weight="fill" />
+              <FaComment size={16} />
               55555 comentários
             </span>
           </S.Summary>

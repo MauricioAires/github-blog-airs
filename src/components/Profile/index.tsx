@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Buildings, GithubLogo, Share, Users } from 'phosphor-react'
+
+import { BiLinkExternal } from 'react-icons/bi'
+import { FaGithub, FaBuilding, FaUserFriends } from 'react-icons/fa'
 
 import { api } from '../../libs/axios'
 
@@ -36,19 +38,19 @@ export function Profile() {
             <h1>{user.name} </h1>
             <a href={user.html_url} target="_blank" rel="noreferrer noopener">
               Github
-              <Share size={15} weight="bold" />
+              <BiLinkExternal size={15} />
             </a>
           </header>
           <p>{user.bio}</p>
           <footer>
             <span>
-              <GithubLogo weight="fill" size={18} /> {user.login}
+              <FaGithub size={18} /> {user.login}
             </span>
             <span>
-              <Buildings weight="fill" size={18} /> {user.company}
+              <FaBuilding size={18} /> {user.company}
             </span>
             <span>
-              <Users weight="fill" size={18} /> {user.followers} seguidores
+              <FaUserFriends size={18} /> {user.followers} seguidores
             </span>
           </footer>
         </div>
