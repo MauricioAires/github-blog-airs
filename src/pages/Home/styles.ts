@@ -21,6 +21,10 @@ export const PostList = styled.div`
     auto-fill,
     minmax(max(382px, calc(100% / 2 - 1rem)), 1fr)
   );
+
+  > a {
+    color: unset;
+  }
 `
 
 export const Title = styled.div`

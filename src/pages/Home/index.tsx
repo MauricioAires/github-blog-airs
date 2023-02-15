@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { PostCard } from '../../components/PostCard'
 import { Profile } from '../../components/Profile'
 import { api } from '../../libs/axios'
@@ -10,6 +11,7 @@ type Issue = {
   body: string
   title: string
   created_at: string
+  number: number
 }
 interface FetchIssuesData {
   total_count: number
@@ -62,12 +64,13 @@ export function HomePage() {
         </S.SearchForm>
         <S.PostList>
           {issues.map((issue) => (
-            <PostCard
-              key={issue.id}
-              body={issue.body}
-              createdAt={issue.created_at}
-              title={issue.title}
-            />
+            <Link key={issue.id} to={`/post/${issue.number}`}>
+              <PostCard
+                body={issue.body}
+                createdAt={issue.created_at}
+                title={issue.title}
+              />
+            </Link>
           ))}
         </S.PostList>
       </S.HomeMain>
