@@ -62,17 +62,27 @@ export function HomePage() {
           />
           <button type="submit">Buscar</button>
         </S.SearchForm>
-        <S.PostList>
-          {issues.map((issue) => (
-            <Link key={issue.id} to={`/post/${issue.number}`}>
-              <PostCard
-                body={issue.body}
-                createdAt={issue.created_at}
-                title={issue.title}
-              />
-            </Link>
-          ))}
-        </S.PostList>
+
+        {issues.length ? (
+          <S.Empty>
+            <strong>Desculpe, nenhum resultado encontrado</strong>
+            <span>
+              O que você procurou infelizmente não foi encontrado ou não existe.
+            </span>
+          </S.Empty>
+        ) : (
+          <S.PostList>
+            {issues.map((issue) => (
+              <Link key={issue.id} to={`/post/${issue.number}`}>
+                <PostCard
+                  body={issue.body}
+                  createdAt={issue.created_at}
+                  title={issue.title}
+                />
+              </Link>
+            ))}
+          </S.PostList>
+        )}
       </S.HomeMain>
     </S.HomePageWrapper>
   )
