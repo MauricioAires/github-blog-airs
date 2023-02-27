@@ -1,10 +1,71 @@
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import { formatDistanceToNow } from 'date-fns'
+import ptBr from 'date-fns/locale/pt-BR'
+
 import { FaGithub, FaClock, FaComment, FaChevronLeft } from 'react-icons/fa'
+
 import { BiLinkExternal } from 'react-icons/bi'
 
 import * as S from './styles'
-import { Link } from 'react-router-dom'
+import { useCallback, useEffect, useState } from 'react'
+import { api } from '../../libs/axios'
+
+interface Issue {
+  title: string
+  comments: number
+  user: {
+    login: string
+  }
+  body: string
+
+  created_at?: string
+  createdAt: string
+
+  html_url?: string
+  htmlUrl: string
+}
 
 export function PostPage() {
+  const navigate = useNavigate()
+  const { issueId } = useParams()
+
+  const [issue, setIssue] = useState<Issue>({} as Issue)
+
+  useEffect(() => {
+    if (Number.isNaN(Number(issueId))) {
+      navigate('/')
+    }
+  }, [issueId, navigate])
+
+  const fetchIssue = useCallback(async () => {
+    const response = await api.get<Issue>(
+      `/repos/MauricioAires/github-blog-airs/issues/${issueId}`,
+    )
+
+    // eslint-disable-next-line camelcase
+    const {
+      body,
+      comments,
+      created_at: _createdAt,
+      html_url: _htmlUrl,
+      title,
+      user,
+    } = response.data
+
+    setIssue({
+      body,
+      comments,
+      createdAt: _createdAt as string,
+      title,
+      user,
+      htmlUrl: _htmlUrl as string,
+    })
+  }, [issueId])
+
+  useEffect(() => {
+    fetchIssue()
+  }, [fetchIssue])
+
   return (
     <S.PostPageWrapper>
       <S.PostPageContent>
@@ -15,47 +76,32 @@ export function PostPage() {
               Voltar
             </Link>
 
-            <a href="#">
+            <a target="_blank" href={issue.htmlUrl} rel="noreferrer">
               Ver no Github <BiLinkExternal fontWeight="bold" />
             </a>
           </S.Navigation>
 
-          <h1>JavaScript data types and data structures</h1>
+          <h1>{issue.title}</h1>
           <S.Summary>
             <span>
               <FaGithub size={16} />
-              cameronwll
+              {issue?.user?.login}
             </span>
             <time>
               <FaClock size={16} />
-              Há 121 dia
+
+              {formatDistanceToNow(new Date(issue?.createdAt || new Date()), {
+                addSuffix: true,
+                locale: ptBr,
+              })}
             </time>
             <span>
               <FaComment size={16} />
-              55555 comentários
+              {issue.comments} comentários
             </span>
           </S.Summary>
         </S.PostHeader>
-        <main>
-          <b>
-            Programming languages all have built-in data structures, but these
-            often differ from one language to another.
-          </b>
-          <p>
-            This article attempts to list the built-in data structures available
-            in JavaScript and what properties they have. These can be used to
-            build other data structures. Wherever possible, comparisons with
-            other languages are drawn. Dynamic typing JavaScript is a loosely
-            typed and dynamic language. Variables in JavaScript are not directly
-            associated with any particular value type, and any variable can be
-            assigned (and re-assigned) values of all types:
-          </p>
-
-          <code>
-            let foo = 42; // foo is now a number foo = ‘bar’; // foo is now a
-            string foo = true; // foo is now a boolean
-          </code>
-        </main>
+        <main>{issue.body}</main>
       </S.PostPageContent>
     </S.PostPageWrapper>
   )
