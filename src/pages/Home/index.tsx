@@ -64,13 +64,6 @@ export function HomePage() {
         </S.SearchForm>
 
         {issues.length ? (
-          <S.Empty>
-            <strong>Desculpe, nenhum resultado encontrado</strong>
-            <span>
-              O que você procurou infelizmente não foi encontrado ou não existe.
-            </span>
-          </S.Empty>
-        ) : (
           <S.PostList>
             {issues.map((issue) => (
               <Link key={issue.id} to={`/post/${issue.number}`}>
@@ -82,6 +75,13 @@ export function HomePage() {
               </Link>
             ))}
           </S.PostList>
+        ) : (
+          <S.Empty>
+            <strong>Desculpe, nenhum resultado encontrado</strong>
+            <span>
+              O que você procurou infelizmente não foi encontrado ou não existe.
+            </span>
+          </S.Empty>
         )}
       </S.HomeMain>
     </S.HomePageWrapper>
