@@ -4,6 +4,8 @@ import ptBr from 'date-fns/locale/pt-BR'
 
 import { FaGithub, FaClock, FaComment, FaChevronLeft } from 'react-icons/fa'
 
+import ReactMarkdown from 'react-markdown'
+
 import { BiLinkExternal } from 'react-icons/bi'
 
 import * as S from './styles'
@@ -101,7 +103,9 @@ export function PostPage() {
             </span>
           </S.Summary>
         </S.PostHeader>
-        <main>{issue.body}</main>
+        <main>
+          <ReactMarkdown>{issue.body}</ReactMarkdown>
+        </main>
       </S.PostPageContent>
     </S.PostPageWrapper>
   )

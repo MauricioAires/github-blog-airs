@@ -22,7 +22,19 @@ export const PostPageContent = styled.div`
         padding: 1.5rem 1rem;
       }
 
-      > code {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0.5rem 0;
+      }
+
+      a {
+        color: ${theme.blue};
+      }
+
+      code {
         background: ${theme['base-post']};
         padding: 1rem;
         border-radius: 2px;
