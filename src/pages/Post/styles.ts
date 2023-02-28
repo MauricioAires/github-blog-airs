@@ -40,6 +40,8 @@ export const PostPageContent = styled.div`
         border-radius: 2px;
         margin: 1rem 0;
         display: block;
+
+        white-space: pre-wrap;
       }
     }
   `}
