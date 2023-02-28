@@ -5,8 +5,8 @@ export const ProfileWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 100%;
+
     transform: translateY(-50%);
     box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 
@@ -52,6 +52,10 @@ export const ProfileContent = styled.div`
       font-size: ${theme.md};
       padding-top: 1rem;
       padding-bottom: 1.5rem;
+
+      @media (max-width: ${theme['breakpoint-md']}) {
+        text-align: center;
+      }
     }
 
     header {
@@ -98,9 +102,11 @@ export const ProfileContent = styled.div`
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      flex-wrap: wrap;
 
       @media (max-width: ${theme['breakpoint-md']}) {
         gap: 0.5rem;
+        justify-content: center;
       }
 
       > span {
@@ -111,6 +117,8 @@ export const ProfileContent = styled.div`
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+
+        line-height: 160%;
 
         white-space: nowrap;
         text-overflow: ellipsis;

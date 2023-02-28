@@ -19,7 +19,7 @@ export const PostList = styled.div`
   grid-row-gap: 1rem;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(max(382px, calc(100% / 2 - 1rem)), 1fr)
+    minmax(max(350px, calc(100% / 2 - 1rem)), 1fr)
   );
 
   > a {
@@ -59,14 +59,29 @@ export const SearchForm = styled.form`
       font-weight: bold;
       padding: 0 2rem;
       border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &:hover {
         filter: brightness(0.8);
         transition: filter 0.3s;
       }
 
+      > svg {
+        display: none;
+      }
+
       @media (max-width: ${theme['breakpoint-md']}) {
         padding: 0 1rem;
+
+        > span {
+          display: none;
+        }
+
+        > svg {
+          display: block;
+        }
       }
     }
 

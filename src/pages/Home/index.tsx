@@ -4,6 +4,8 @@ import { PostCard } from '../../components/PostCard'
 import { Profile } from '../../components/Profile'
 import { api } from '../../libs/axios'
 
+import { FaSearch } from 'react-icons/fa'
+
 import * as S from './styles'
 
 type Issue = {
@@ -60,7 +62,10 @@ export function HomePage() {
             onChange={(e) => setSearchIssue(e.target.value)}
             placeholder="Buscar conteúdo"
           />
-          <button type="submit">Buscar</button>
+          <button type="submit">
+            <span>Buscar</span>
+            <FaSearch size={16} fontWeight="bold" />
+          </button>
         </S.SearchForm>
 
         {issues.length ? (
